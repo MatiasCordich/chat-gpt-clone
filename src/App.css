@@ -1,38 +1,120 @@
-.App {
-  text-align: center;
+@import url("./styles/variables.css");
+
+.wrapper {
+  display: flex;
+  max-width: 200rem;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.side-bar {
+  background-color: var(--sidebar);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.button-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  background-color: var(--border);
+  border: none;
+  border-radius: 0.6rem;
+  color: #dfdfde;
+  padding: 1rem;
+  width: 95%;
+  margin: 1rem auto;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar {
+  border-top: 2px solid var(--border);
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.history {
+  padding: 1rem;
+  margin: 1rem;
+  height: 100%;
+}
+
+.title-app{
+  margin: 1rem;
+}
+
+.bottom-section{
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.history li {
+  list-style: none;
+  padding: 1.5rem 0;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.input-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  max-width: 65rem;
+  width: 100%;
+}
+
+.input-container input{
+  width: 100%;
+  padding: 1rem;
+  border-radius: .6rem;
+  background-color: var(--background-black);
+  outline: none;
+  border: none;
+  color: var(--font);
+  font-size: 1.8rem;
+}
+
+.btn-send{
+  background-color: var(--btn-send);
+  padding: 1rem;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.info{
+  color: var(--font);
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.info a {
+  text-decoration: none;
+  color: var(--font);
+  font-weight: 600;
+}
+
+@media (min-width: 900px) {
+  .side-bar {
+    background-color: var(--sidebar);
+    height: 100vh;
+    width: 24.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
-  to {
-    transform: rotate(360deg);
+
+  .main {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
   }
 }
