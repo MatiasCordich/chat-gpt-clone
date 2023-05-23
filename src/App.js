@@ -1,6 +1,30 @@
+import { useState, useEffect } from "react";
 import "./App.css";
-
 const App = () => {
+  const [ message, setMessage ] = useState(null)
+  const [ value, setValue ] = useState('')
+
+  const getMessages = async () => {
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+    },
+      body: JSON.stringify({
+        message: value,
+      }),
+    };
+
+    try {
+      const res = await fetch('http://localhost:8800/completions', options)
+      const data = await res.json()
+      console.log(data)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="wrapper">
       <section className="side-bar">
@@ -23,8 +47,9 @@ const App = () => {
         <ul className="feed"></ul>
         <div className="bottom-section">
           <div className="input-container">
-            <input type="text" />
+            <input type="text" value={value} onChange={(e) => setValue(e.target.value)} />
             <img
+              onClick={getMessages}
               className="btn-send"
               src="https://img.icons8.com/external-febrian-hidayat-basic-outline-febrian-hidayat/15/fafafa/external-send-user-interface-febrian-hidayat-basic-outline-febrian-hidayat.png"
               alt="external-send-user-interface-febrian-hidayat-basic-outline-febrian-hidayat"
@@ -32,7 +57,13 @@ const App = () => {
           </div>
           <p className="info">
             Free Research Preview. ChatGPT may produce inaccurate information
-            about people, places, or facts. <a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="__blank">ChatGPT May 12 Version</a>
+            about people, places, or facts.{" "}
+            <a
+              href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+              target="__blank"
+            >
+              ChatGPT May 12 Version
+            </a>
           </p>
         </div>
       </section>
