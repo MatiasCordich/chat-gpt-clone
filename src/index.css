@@ -22,3 +22,11 @@ body{
   background-color: var(--background);
   color: var(--font);
 }
+
+li{
+  list-style: none;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
