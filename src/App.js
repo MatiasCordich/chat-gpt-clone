@@ -18,7 +18,7 @@ const App = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:8800/completions", options);
+      const res = await fetch("https://chatgpt-service-xysm.onrender.com/completions", options);
       const data = await res.json();
       setMessage(data.choices[0].message);
     } catch (error) {
@@ -55,8 +55,6 @@ const App = () => {
   const currentChat = previousChats.filter(previousChat => previousChat.title === currentTitle)
 
   const uniqueTitles = Array.from(new Set(previousChats.map(previousChat => previousChat.title)))
-
-  console.log(uniqueTitles)
 
   return (
     <div className="wrapper">
