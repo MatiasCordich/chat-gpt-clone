@@ -2,6 +2,7 @@
 
 .wrapper {
   display: flex;
+  flex-direction: column;
   max-width: 200rem;
   width: 100%;
   margin: 0 auto;
@@ -9,6 +10,7 @@
 
 .side-bar {
   background-color: var(--sidebar);
+  height: 100%;
 }
 
 .button-add {
@@ -130,6 +132,9 @@
 }
 
 @media (min-width: 900px) {
+  .wrapper{
+    flex-direction: row;
+  }
   .side-bar {
     background-color: var(--sidebar);
     height: 100vh;
